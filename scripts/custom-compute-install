@@ -1,0 +1,44 @@
+#!/bin/bash
+
+mkdir -p /root
+
+# Update system and install dependencies
+yum -y update
+yum -y install centos-release-scl
+yum -y install devtoolset-4-toolchain
+yum -y install devtoolset-8-toolchain
+#source scl_source enable devtoolset-4
+source scl_source enable devtoolset-8
+yum -y install gflags gflags-devel cmake3 atlas atlas-devel suitesparse suitesparse-devel wget htop eigen3-devel glog-devel glew glew-devel qt5-qtbase-devel boost boost-devel eigen3 eigen3-devel ImageMagick openblas-devel
+
+# Install modern version of FreeImage
+cd /root
+wget http://downloads.sourceforge.net/freeimage/FreeImage3180.zip
+unzip FreeImage3180.zip
+cd FreeImage
+make -j2
+make install
+ln -s /usr/lib/libfreeimage* /lib64
+
+# Install ceres
+cd /root
+git clone https://ceres-solver.googlesource.com/ceres-solver
+cd ceres-solver
+# 1.14 has dependency issues -- install 1.13 instead
+git checkout 1.13.0
+mkdir build
+cd build
+cmake3 ..
+make -j2
+make install
+
+# Install colmap
+cd /root
+git clone https://github.com/colmap/colmap
+cd colmap
+git checkout dev
+mkdir build
+cd build
+cmake3 .. -DBOOST_STATIC=OFF
+make -j2
+make install
