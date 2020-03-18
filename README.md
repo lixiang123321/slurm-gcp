@@ -12,12 +12,14 @@ Links:
 
 If you use this benchmark, please cite the paper:
 
-> @article{Jin2020,
->     author={Yuhe Jin and Dmytro Mishkin and Anastasiia Mishchuk and Jiri Matas and Pascal Fua and Kwang Moo Yi and Eduard Trulls},
->     title={{Image Matching across Wide Baselines: From Paper to Practice}},
->     journal={arXiv}
->     year={2020},
-> }
+```
+@article{Jin2020,
+    author={Yuhe Jin and Dmytro Mishkin and Anastasiia Mishchuk and Jiri Matas and Pascal Fua and Kwang Moo Yi and Eduard Trulls},
+    title={{Image Matching across Wide Baselines: From Paper to Practice}},
+    journal={arXiv},
+    year={2020}
+}
+```
 
 ### Cluster Installation
 
