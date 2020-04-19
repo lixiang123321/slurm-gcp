@@ -13,5 +13,7 @@ cmake3 -D CMAKE_BUILD_TYPE=RELEASE \
 	-D PYTHON3_EXECUTABLE=$HOME/miniconda3/envs/$CONDA_ENV/bin/python \
 	-D PYTHON_LIBRARIES=$HOME/miniconda3/envs/$CONDA_ENV/lib/libpython3.7m.so \
 	-D PYTHON3_INCLUDE_DIRS=$HOME/miniconda3/envs/$CONDA_ENV/include/python3.7m \
+	-D BUILD_opencv_python3=ON \
+	-D PYTHON3_NUMPY_INCLUDE_DIRS=/apps/miniconda3/envs/sfm/lib/python3.7/site-packages/numpy/core/include \
 	-D OPENCV_ENABLE_NONFREE=ON \
 	$WHERE_OPENCV
